@@ -76,27 +76,6 @@ function App() {
     }
   }
 
-  // const onAddToCart = async (obj) => {
-  //   try {
-  //     if (cartItems.find((item) => Number(item.parentId) === Number(obj.id))) {
-  //       setCartItems((prev) =>
-  //         prev.filter((item) => Number(item.parentId) !== Number(obj.id))
-  //       )
-  //       await axios.delete(
-  //         `https://64d8b8cb5f9bf5b879ce7d61.mockapi.io/cart/${obj.id}`
-  //       )
-  //     } else {
-  //       setCartItems((prev) => [...prev, obj])
-  //       await axios.post(
-  //         'https://64d8b8cb5f9bf5b879ce7d61.mockapi.io/cart',
-  //         obj
-  //       )
-  //     }
-  //   } catch (error) {
-  //     alert("Something get wrong! Don't click too fast! MockAPI needs time")
-  //   }
-  // }
-
   const onRemoveItem = (id) => {
     try {
       axios.delete(`https://64d8b8cb5f9bf5b879ce7d61.mockapi.io/cart/${id}`)
@@ -108,16 +87,6 @@ function App() {
       console.error(error)
     }
   }
-
-  // const onRemoveItem = async (id) => {
-  //   try {
-  //     axios.delete(`https://64d8b8cb5f9bf5b879ce7d61.mockapi.io/cart/${id}`)
-  //     setCartItems((prev) => prev.filter((item) => +item.parentId !== +id))
-  //   } catch (error) {
-  //     alert("Delete from cart error! Don't click too fast! MockAPI needs time")
-  //     console.error(error)
-  //   }
-  // }
 
   const onAddToFavorite = async (obj) => {
     try {
