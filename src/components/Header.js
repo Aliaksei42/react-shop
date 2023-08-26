@@ -14,7 +14,7 @@ function Header(props) {
 
           <div>
             <h3 className="text-uppercase">React Sneakers</h3>
-            <p className="opacity-5">Shop the best sneakers</p>
+            <p className="opacity-5">Shop of the best sneakers</p>
           </div>
         </div>
       </Link>
