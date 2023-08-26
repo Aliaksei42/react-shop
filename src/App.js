@@ -117,6 +117,10 @@ function App() {
     return cartItems.some((obj) => +obj.parentId === +id)
   }
 
+  const isFavorited = (id) => {
+    return favorites.some((obj) => +obj.parentId === +id)
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -124,6 +128,7 @@ function App() {
         cartItems,
         favorites,
         isItemAdded,
+        isFavorited,
         onAddToFavorite,
         onAddToCart,
         setCartOpened,
@@ -141,7 +146,7 @@ function App() {
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
-            path=""
+            path="/"
             exact
             element={
               <Home
@@ -157,9 +162,9 @@ function App() {
             }
           ></Route>
 
-          <Route path="favorites" exact element={<Favorites />}></Route>
+          <Route path="/favorites" exact element={<Favorites />}></Route>
 
-          <Route path="orders" exact element={<Orders />}></Route>
+          <Route path="/orders" exact element={<Orders />}></Route>
         </Routes>
       </div>
     </AppContext.Provider>
