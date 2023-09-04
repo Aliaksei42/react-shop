@@ -1,5 +1,9 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
+import heartLiked from '../../images/heart-liked.svg'
+import heartUnliked from '../../images/heart-unliked.svg'
+import btnChecked from '../../images/btn-checked.svg'
+import btnPlus from '../../images/btn-plus.svg'
 
 import AppContext from '../../context'
 import styles from './Card.module.scss'
@@ -18,6 +22,7 @@ function Card({
   const [isFavorite, setIsFavorite] = React.useState(favorited)
   const obj = { id, parentId: id, title, imageUrl, price }
 
+  console.log(imageUrl)
   const onClickPlus = () => {
     onPlus(obj)
   }
@@ -49,14 +54,18 @@ function Card({
           {onFavorite && (
             <div className={styles.favorite} onClick={onClickFavorite}>
               <img
-                src={
-                  isFavorited(id) ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'
-                }
+                src={isFavorited(id) ? heartLiked : heartUnliked}
                 alt="Unliked"
               />
             </div>
           )}
-          <img width="100%" height={135} src={imageUrl} alt="Sneakers" />
+          <img
+            width="100%"
+            height={135}
+            src={require(`../../images/sneakers/${imageUrl}`)}
+          
+            alt="Sneakers"
+          />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
@@ -68,9 +77,7 @@ function Card({
               <img
                 className={styles.plus}
                 onClick={onClickPlus}
-                src={
-                  isItemAdded(id) ? 'img/btn-checked.svg' : 'img/btn-plus.svg'
-                }
+                src={isItemAdded(id) ? btnChecked : btnPlus}
                 alt="Plus"
               />
             )}

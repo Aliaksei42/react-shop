@@ -3,6 +3,10 @@ import axios from 'axios'
 
 import Info from '../Info'
 import { useCart } from '../../hooks/useCart'
+import remove from '../../images/btn-remove.svg'
+import arrow from '../../images/arrow.svg'
+import completeOrder from '../../images/complete-order.jpg'
+import emptyCart from '../../images/empty-cart.jpg'
 
 import styles from './Drawer.module.scss'
 
@@ -10,9 +14,9 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 function Drawer({ onClose, onRemove, items = [], opened }) {
   const { cartItems, setCartItems, totalPrice } = useCart()
-  const [ orderId, setOrderId ] = React.useState(null)
-  const [ isOrderComplete, setIsOrderComplete ] = React.useState(false)
-  const [ isLoading, setIsLoading ] = React.useState(false)
+  const [orderId, setOrderId] = React.useState(null)
+  const [isOrderComplete, setIsOrderComplete] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
 
   const onClickOrder = async () => {
     try {
@@ -46,7 +50,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
           <img
             onClick={onClose}
             className="removeBtn cu-p"
-            src="img/btn-remove.svg"
+            src={remove}
             alt="Close"
           />
         </h2>
@@ -71,7 +75,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                   <img
                     onClick={() => onRemove(obj.id)}
                     className="removeBtn left"
-                    src="img/btn-remove.svg"
+                    src={remove}
                     alt="Remove"
                   />
                 </div>
@@ -95,7 +99,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 onClick={onClickOrder}
                 className="greenButton"
               >
-                Checkout <img src="img/arrow.svg" alt="Arrow" />
+                Checkout <img src={arrow} alt="Arrow" />
               </button>
             </div>
           </div>
@@ -108,7 +112,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 : 'Add something to your cart to place an order'
             }
             image={
-              isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'
+              isOrderComplete ? completeOrder : emptyCart
             }
           />
         )}

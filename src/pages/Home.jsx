@@ -1,5 +1,7 @@
 import React from 'react'
 import Card from '../components/Card/Card'
+import btnRemove from '../images/btn-remove.svg'
+import search from '../images/search.svg'
 
 function Home({
   items,
@@ -13,8 +15,8 @@ function Home({
   const renderItems = () => {
     const filtredItems =
       items &&
-      items.filter((item) =>
-        item.title.toLowerCase().includes(searchValue.toLowerCase())
+      items?.filter((item) =>
+        item?.title?.toLowerCase()?.includes(searchValue?.toLowerCase())
       )
 
     return (isLoading ? [...Array(8)] : filtredItems).map((item, index) => (
@@ -35,12 +37,12 @@ function Home({
           {searchValue ? `Search by request: "${searchValue}"` : `All sneakers`}
         </h1>
         <div className="search-block d-flex">
-          <img src="img/search.svg" alt="Search" />
+          <img src={search} alt="Search" />
           {searchValue && (
             <img
               onClick={() => setSearchValue('')}
               className="clear cu-p"
-              src="img/btn-remove.svg"
+              src={btnRemove}
               alt="Clear"
             />
           )}

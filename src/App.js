@@ -31,6 +31,7 @@ function App() {
         setIsLoading(false)
         setCartItems(cartResponse.data)
         setFavorites(favoritesResponse.data)
+        console.log(itemsResponse.data)
         setItems(itemsResponse.data)
       } catch (error) {
         alert('Data request error ;(')
@@ -146,7 +147,7 @@ function App() {
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
-            path=""
+            path="/"
             exact
             element={
               <Home
