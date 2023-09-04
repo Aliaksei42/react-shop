@@ -63,7 +63,6 @@ function Card({
             width="100%"
             height={135}
             src={require(`../../images/sneakers/${imageUrl}`)}
-          
             alt="Sneakers"
           />
           <h5>{title}</h5>

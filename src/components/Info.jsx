@@ -1,7 +1,6 @@
 import React from 'react'
 import AppContext from '../context'
 import arrow from '../images/arrow.svg'
-import emptyCart from '../images/empty-cart.jpg'
 
 const Info = ({ title, image, description }) => {
   const { setCartOpened } = React.useContext(AppContext)
