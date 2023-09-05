@@ -63,12 +63,12 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                   key={obj.id}
                   className="cartItem d-flex align-center mb-20"
                 >
-                  <div
-                    style={{ backgroundImage: `../images/sneakers/${imageUrl}` }}
-                    // style={{ backgroundImage: `url({require('../../images/sneakers/${obj.imageUrl}')})` }}
-                   
-                    className="cartItemImg"
-                  ></div>
+                  <img
+                    width="30%"
+                    height="30%"
+                    src={require(`../../images/sneakers/${obj.imageUrl}`)}
+                    alt="Sneakers"
+                  />
 
                   <div className="mr-20 flex">
                     <p className="mb-5">{obj.title}</p>
@@ -113,9 +113,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                 ? `Your order #${orderId} will be handed over to the courier soon`
                 : 'Add something to your cart to place an order'
             }
-            image={
-              isOrderComplete ? completeOrder : emptyCart
-            }
+            image={isOrderComplete ? completeOrder : emptyCart}
           />
         )}
       </div>
